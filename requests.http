@@ -1,0 +1,59 @@
+@baseUrl=http://localhost:3000
+@authUrl=http://localhost:3001
+
+###
+POST {{baseUrl}}/reservations
+Content-Type: application/json
+
+{
+  "startDate": "12/13/2020",
+  "endDate": "12/25/2020",
+  "placeId": "1325",
+  "invoiceId": "1111"
+}
+
+### RESPONSE
+
+# {
+#   "_id": "643c8c627216e37c8c4b6ea3",
+#   "timestamp": "2023-04-17T00:01:38.591Z",
+#   "startDate": "2019-12-13T03:00:00.000Z",
+#   "endDate": "2019-12-25T03:00:00.000Z",
+#   "userId": "123",
+#   "placeId": "13245",
+#   "invoiceId": "493"
+# }
+
+###
+GET {{baseUrl}}/reservations
+Content-Type: application/json
+
+
+###
+@id=643c8ca47216e37c8c4b6ea5
+GET {{baseUrl}}/reservations/{{id}}
+Content-Type: application/json
+
+###
+
+PATCH {{baseUrl}}/reservations/{{id}}
+Content-Type: application/json
+
+{
+  "endDate": "12/30/2020"
+}
+
+###
+
+DELETE {{baseUrl}}/reservations/{{id}}
+Content-Type: application/json
+
+### CREATE USER
+
+POST {{authUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "prueba1@gmail.com",
+  "password": "strongPassword123#2"
+}
